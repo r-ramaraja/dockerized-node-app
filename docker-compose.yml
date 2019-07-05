@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  todo:
+    container_name: todo
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo:3.4
+    volumes:
+      - /data/db
+    ports:
+      - "27017:27017"
